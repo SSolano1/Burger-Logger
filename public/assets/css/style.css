@@ -1,0 +1,18 @@
+body {
+    background: linear-gradient(to right, rgb(223, 89, 89),rgb(136, 22, 22) ), no-repeat;
+}
+#burgerPic{
+    text-align: center;
+}
+img {
+    height: 650px;
+    margin: auto;
+}
+h1{
+    font-size: 75px;
+    text-align: center;
+}
+h3 {
+    color: white;
+    font-size: 45px;
+}
