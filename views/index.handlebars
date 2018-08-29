@@ -7,37 +7,32 @@
 
 	<div class="row">
 		<div class="col-md-12">
+
 			<h1 class="text-center" style="color:rgb(242, 242, 248);">Fancy Burger!</h1>
+
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="col-md-6" style>
-			<h3>Uneaten Burgers</h3>
-
+			<h3>Yummy Burgers</h3>
 			<ul>
 				{{#each burgers}} {{#unless this.devoured}}
-				<li>
-					<h5>{{this.id}}. {{this.burger_name}}
-						<form action='burgers/updateOne/{{this.id}}?_method=PUT' method='POST'>
-							<input type='hidden' name='devoured' value='true'>
-							<button type='submit' class="btn btn-default">EAT ME!</button>
-						</form>
-					</h5>
-				</li>
-
-				{{/unless}} {{/each}}
 			</ul>
+			<h5>{{this.id}}. {{this.burger_name}}</h5>
+			<button type='submit' data-id={{this.id}} class="btn btn-default burgBtn">EAT ME!</button>
+
+			{{/unless}} {{/each}}
+
 		</div>
 		<div class="col-md-2"></div>
 		<div class="col-md-6">
-			<h3 class="newBurger">Eaten Burgers</h3>
+			<h3 class="devouredBurger">Eaten Burgers</h3>
 
 			<ul>
 				{{#each burgers}} {{#if this.devoured}}
-			<li>
-				<h5 class="newBurger">{{this.id}}. {{this.burger_name}}</h5>
-			</li>
+				<li>
+					<h5 class="devouredBurger">{{this.id}}. {{this.burger_name}}</h5>
+				</li>
 				{{/if}} {{/each}}
 			</ul>
 		</div>
@@ -48,10 +43,11 @@
 		<div class="col-md-12 text-center">
 			<form class="create-update-form input-lg" action="burgers/insertOne" method="POST">
 				<div class="form-group">
-					<textarea type="text" name="name"></textarea>
+					<h5>What type of burger would you like?</h5>
+					<input class="form control" id="newBurger" type="text" placeholder="Default input">
 					<br>
-					<button class="btn btn-default" type="submit">Submit</button>
-					<h5 class="text-center">Enter a burger you want to eat and then Submit!</h5>
+					<button type="button" class="btn btn-default" id="betterBurger">Submit</button>
+
 				</div>
 			</form>
 		</div>
